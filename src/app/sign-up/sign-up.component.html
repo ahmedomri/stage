@@ -1,0 +1,76 @@
+<img class="wave" src="../../assets/wave.png" />
+<div class="container">
+  <div class="img">
+    <img src="../../assets/bg.svg" />
+  </div>
+  <div class="login-content">
+    <form>
+      <img src="../../assets/avatar.svg" />
+      <h2 class="title">Create Your Account!</h2>
+      <div class="input-div one">
+        <div class="i">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="div">
+          <input
+            type="text"
+            class="input"
+            placeholder="FirstName"
+            (focus)="onFocus()"
+          />
+        </div>
+      </div>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="div">
+          <input
+            type="text"
+            (focus)="onFocus()"
+            class="input"
+            placeholder="LastName"
+          />
+        </div>
+      </div>
+      <div class="input-div one">
+        <div class="i">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="div">
+          <input
+            type="text"
+            class="input"
+            placeholder="UserName"
+            (focus)="onFocus()"
+          />
+        </div>
+      </div>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-envelope-square"></i>
+        </div>
+        <div class="div">
+          <input type="email" class="input" placeholder="Email" />
+        </div>
+      </div>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+          <input type="password" class="input" placeholder="Password" />
+        </div>
+      </div>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+          <input type="password" class="input" placeholder="Retype password" />
+        </div>
+      </div>
+      <input type="submit" class="btn" value="Sign Up" (click)="onSignUp()" />
+    </form>
+  </div>
+</div>
