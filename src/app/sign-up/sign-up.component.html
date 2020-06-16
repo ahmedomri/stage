@@ -4,9 +4,12 @@
     <img src="../../assets/bg.svg" />
   </div>
   <div class="login-content">
-    <form>
+    <form [formGroup]="SignUpForm">
       <img src="../../assets/avatar.svg" />
       <h2 class="title">Create Your Account!</h2>
+      <div class="invalidForm" *ngIf="SignUpForm.invalid">
+        {{ erreurMessage }}
+      </div>
       <div class="input-div one">
         <div class="i">
           <i class="fas fa-user"></i>
@@ -16,7 +19,7 @@
             type="text"
             class="input"
             placeholder="FirstName"
-            (focus)="onFocus()"
+            formControlName="firstName"
           />
         </div>
       </div>
@@ -27,9 +30,9 @@
         <div class="div">
           <input
             type="text"
-            (focus)="onFocus()"
             class="input"
             placeholder="LastName"
+            formControlName="lastName"
           />
         </div>
       </div>
@@ -42,7 +45,7 @@
             type="text"
             class="input"
             placeholder="UserName"
-            (focus)="onFocus()"
+            formControlName="userName"
           />
         </div>
       </div>
@@ -51,7 +54,12 @@
           <i class="fas fa-envelope-square"></i>
         </div>
         <div class="div">
-          <input type="email" class="input" placeholder="Email" />
+          <input
+            type="email"
+            class="input"
+            placeholder="Email"
+            formControlName="email"
+          />
         </div>
       </div>
       <div class="input-div pass">
@@ -59,7 +67,12 @@
           <i class="fas fa-lock"></i>
         </div>
         <div class="div">
-          <input type="password" class="input" placeholder="Password" />
+          <input
+            type="password"
+            class="input"
+            placeholder="Password"
+            formControlName="password"
+          />
         </div>
       </div>
       <div class="input-div pass">
@@ -67,10 +80,21 @@
           <i class="fas fa-lock"></i>
         </div>
         <div class="div">
-          <input type="password" class="input" placeholder="Retype password" />
+          <input
+            type="password"
+            class="input"
+            placeholder="Retype password"
+            formControlName="password2"
+          />
         </div>
       </div>
-      <input type="submit" class="btn" value="Sign Up" (click)="onSignUp()" />
+      <input
+        type="submit"
+        class="btn"
+        value="Sign Up"
+        (click)="onSignUp()"
+        [disabled]="SignUpForm.invalid"
+      />
     </form>
   </div>
 </div>

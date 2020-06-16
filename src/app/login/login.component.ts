@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Router } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-login",
@@ -6,7 +8,27 @@ import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
   styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  SignInForm: FormGroup;
+  erreurMessage: string;
 
-  ngOnInit() {}
+  constructor(private router: Router, private fromBuilder: FormBuilder) {}
+
+  ngOnInit() {
+    this.initForm();
+  }
+
+  initForm() {
+    this.SignInForm = this.fromBuilder.group({
+      userName: ["", Validators.required],
+      password: [
+        "",
+        [Validators.required, Validators.pattern("[0-9a-zA-Z]{6,}")],
+      ],
+    });
+    if (this.SignInForm.invalid) {
+      this.erreurMessage = "Please fill in all fields for Login!";
+    }
+  }
+
+  onSignIn() {}
 }
